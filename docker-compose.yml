@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: web.Dockerfile
+    image: api
+    networks:
+      - todonet
+    depends_on: 
+      - "db"
+    env_file: 
+      - .env
+    ports:
+      - "9080:8080"
+    container_name: apii
+  db:
+    image: mysql:5
+    env_file:
+      - .env
+    networks:
+      - todonet
+    ports:
+      - "3306:3306"
+    # volumes:
+    #   - ./initial.sql:/docker-entrypoint-initdb.d/init.sql #prepopulate sql with apps_2019-02-10.sql
+    container_name: todo_db
+networks:
+  todonet:

@@ -18,3 +18,6 @@
         <img src="http://img.shields.io/badge/swift-4.1-brightgreen.svg" alt="Swift 4.1">
     </a>
 </p>
+<p>
+    Modified to use MySQL instead of SQLite and added docker-compose and .env files
+</p>
